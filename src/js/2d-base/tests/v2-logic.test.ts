@@ -60,5 +60,12 @@ test('rotate around point', () =>
     transform(
       { x: 1, y: 1 },
       transformationCombining(translating(scale({ x: 2, y: 2 }, -1)), rotation(τ / 4), translating({ x: 2, y: 2 }))
-    )
-  ).toStrictEqual({ x: 2, y: 2 }));
+    ).x
+  ).toBeCloseTo(3));
+test('rotate around point', () =>
+  expect(
+    transform(
+      { x: 1, y: 1 },
+      transformationCombining(translating(scale({ x: 2, y: 2 }, -1)), rotation(τ / 4), translating({ x: 2, y: 2 }))
+    ).y
+  ).toBeCloseTo(1));
