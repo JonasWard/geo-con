@@ -1,0 +1,27 @@
+{
+  "name": "geo-con",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot doc/index.tsx",
+    "start": "NODE_ENV=production bun doc/index.tsx",
+    "build": "bun run build.ts"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.3.0",
+    "@react-three/fiber": "^9.1.2",
+    "bun-plugin-tailwind": "^0.0.15",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.8",
+    "three": "^0.177.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
