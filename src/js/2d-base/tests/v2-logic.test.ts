@@ -17,7 +17,8 @@ import {
   mirroring,
   transformationCombining,
   scale,
-  normal
+  normal,
+  getBoundingBox
 } from '../v2-logic';
 import { τ } from '../../1d-base';
 
@@ -69,3 +70,14 @@ test('rotate around point', () =>
       transformationCombining(translating(scale({ x: 2, y: 2 }, -1)), rotation(τ / 4), translating({ x: 2, y: 2 }))
     ).y
   ).toBeCloseTo(1));
+
+test('getBoundingBox', () =>
+  expect(
+    getBoundingBox([
+      { x: -1, y: 2 },
+      { x: 3, y: -4 },
+      { x: -2, y: 6 },
+      { x: -4, y: 2 },
+      { x: 0, y: 0 }
+    ])
+  ).toStrictEqual({ min: { x: -4, y: -4 }, max: { x: 3, y: 6 } }));

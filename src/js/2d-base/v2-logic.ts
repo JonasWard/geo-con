@@ -249,3 +249,13 @@ export const transform = (v: V2, t: V2Transform): V2 => ({
   x: t[0] * v.x + t[1] * v.y + t[2],
   y: t[3] * v.x + t[4] * v.y + t[5]
 });
+
+/**
+ * 2D Bounding Box Method
+ * @param vs - `V2[]`
+ * @returns `V2`
+ */
+export const getBoundingBox = (vs: V2[]): { min: V2; max: V2 } => ({
+  min: { x: vs.reduce((a, b) => (a < b.x ? a : b.x), Infinity), y: vs.reduce((a, b) => (a < b.y ? a : b.y), Infinity) },
+  max: { x: vs.reduce((a, b) => (a > b.x ? a : b.x), -Infinity), y: vs.reduce((a, b) => (a > b.y ? a : b.y), -Infinity) }
+});
